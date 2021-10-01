@@ -1,0 +1,29 @@
+.header_image {
+    background-image: url("/images/books.jpg");
+    height: 110px;
+    background-repeat: repeat-x;
+}
+
+.header_name {
+    position: relative;
+    height: 110px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Ubuntu, serif;
+    background-color: #366277;
+    color: white;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user > .user_photo {
+    width: 64px;
+    height: 64px;
+}
+
+.user > .user_name {
+    font-size: x-large;
+}

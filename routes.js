@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
   })
 })
 
-// Access to the certain style
+// Access to the style
 router.get("/styles/:css_file_name", (req, res) => {
   res.sendFile(__dirname + "/styles/" + req.params.css_file_name);
 })
 
-// Access to an image
+// Access to the image
 router.get("/images/:image", (req, res) => {
   res.sendFile(__dirname + "/images/" + req.params.image);
 })

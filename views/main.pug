@@ -16,5 +16,5 @@ html
             ul
                 each book in books
                   li
-                    a
+                    a(href="/books/#{book.id}")
                       =`${book.id}: ${book.title} (${book.author})`

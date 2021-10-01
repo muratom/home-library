@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title= `${book.name} (${(book.author)})`
+        link(rel='stylesheet', href='/styles/main.css')
+    body
+        header
+            .header_image &nbsp;
+            .header_name Домашняя бибилиотека
+        .user
+            img.user_photo(src="/images/user_photo.png")
+            .user_name.
+                #[b Имя пользователя:] #{user_name}
+        div
+            = `${book.id}: ${book.title} (${book.author})`
