@@ -1,0 +1,20 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Война и мир",
+      "author": "Л.Н. Толстой",
+      "published": 1867,
+      "isInStock": true,
+      "whoTook": null
+    },
+    {
+      "id": 2,
+      "title": "Судьба человека",
+      "author": "М.А. Шолохов",
+      "published": 1957,
+      "isInStock": true,
+      "whoTook": null
+    }
+  ]
+}
