@@ -1,5 +1,8 @@
 const server = require("express")();
 
+const bodyParser = require("body-parser");
+server.use(bodyParser.urlencoded({ extended: true }));
+
 server.set("view engine", "pug");
 server.set("views", "./views");
 

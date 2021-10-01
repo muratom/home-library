@@ -1,12 +1,24 @@
 const router = require("express").Router();
 
-const userName = "Ruslan";
+let userName = "anonymous"
 
 // Get the books data from the server
 let libBooks = require("./data/books.json");
 
 // Main page
 router.get("/", (req, res) => {
+  res.render("intro");
+});
+
+router.post("/books", (req, res) => {
+  userName = req.body.user_name === "" ? "Anonymous" : req.body.user_name;
+  res.render("main", {
+    user_name: userName,
+    books: libBooks.books
+  });
+});
+
+router.get("/books", (req, res) => {
   res.render("main", {
     user_name: userName,
     books: libBooks.books

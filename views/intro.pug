@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title Home library
+        link(rel='stylesheet', href='/styles/intro.css')
+    body
+        include header.pug
+        form(action="/books" method="post")
+            p Введите имя:
+            p
+                input(type="text", size="42", name="user_name")
+            p
+                input(type="submit", value="Отправить")
