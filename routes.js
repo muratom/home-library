@@ -7,23 +7,26 @@ let libBooks = require("./data/books.json");
 
 // Main page
 router.get("/", (req, res) => {
-  res.render("intro");
+  res.render("intro", {
+    user_name: ""
+  });
 });
 
+// For entering user name
 router.post("/books", (req, res) => {
-  userName = req.body.user_name === "" ? "Anonymous" : req.body.user_name;
+  userName = req.body.user_name === "" ? "anonymous" : req.body.user_name;
   res.render("main", {
     user_name: userName,
     books: libBooks.books
   });
 });
 
-router.get("/books", (req, res) => {
-  res.render("main", {
-    user_name: userName,
-    books: libBooks.books
-  });
-});
+// router.get("/books", (req, res) => {
+//   res.render("main", {
+//     user_name: userName,
+//     books: libBooks.books
+//   });
+// });
 
 router.get("/books/:id", (req, res) => {
   res.render("book", {

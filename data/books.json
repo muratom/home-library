@@ -6,7 +6,8 @@
       "author": "Л.Н. Толстой",
       "published": 1867,
       "isInStock": true,
-      "whoTook": null
+      "whoTook": null,
+      "whenMustReturn": null
     },
     {
       "id": 2,
@@ -14,7 +15,53 @@
       "author": "М.А. Шолохов",
       "published": 1957,
       "isInStock": true,
-      "whoTook": null
+      "whoTook": null,
+      "whenMustReturn": null
+    },
+    {
+      "id": 3,
+      "title": "Автостопом по галактике",
+      "author": "Дуглас Адамс",
+      "published": 1979,
+      "isInStock": true,
+      "whoTook": null,
+      "whenMustReturn": null
+    },
+    {
+      "id": 4,
+      "title": "Пикник на обочине",
+      "author": "А.Н Стругацкий, Б.Н. Стругацкий",
+      "published": 1957,
+      "isInStock": true,
+      "whoTook": null,
+      "whenMustReturn": null
+    },
+    {
+      "id": 5,
+      "title": "Дюна",
+      "author": "Фрэнк Герберт",
+      "published": 1965,
+      "isInStock": true,
+      "whoTook": null,
+      "whenMustReturn": null
+    },
+    {
+      "id": 6,
+      "title": "Generation \"П\"",
+      "author": "В.П. Пелевин",
+      "published": 1999,
+      "isInStock": true,
+      "whoTook": null,
+      "whenMustReturn": null
+    },
+    {
+      "id": 7,
+      "title": "Горе от ума",
+      "author": "А.С. Грибоедов",
+      "published": 1833,
+      "isInStock": true,
+      "whoTook": null,
+      "whenMustReturn": null
     }
   ]
 }

@@ -1,6 +1,15 @@
 @import "header.css";
 
-section {
-    display: flex;
-    flex-wrap: wrap;
-}
+/*section {*/
+/*    display: flex;*/
+/*    flex-flow: row wrap;*/
+/*    align-items: center;*/
+/*    justify-content: space-around;*/
+/*}*/
+
+/*.book_cell {*/
+/*    padding: 10px;*/
+/*    margin: 10px;*/
+/*    background-color: aqua;*/
+/*    flex: 200px 200px;*/
+/*}*/

@@ -7,6 +7,10 @@ html
     body
         include header.pug
         section
+            // each book in books
+            //     a.book_cell(href="/books/" + book.id)
+            //         h2= book.title
+            //         p= `${book.author} (${book.published})`
             ul
                 each book in books
                   li
