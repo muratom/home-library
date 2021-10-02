@@ -6,5 +6,34 @@ html
         link(rel='stylesheet', href='/styles/book.css')
     body
         include header.pug
-        div
-            = `${book.id}: ${book.title} (${book.author})`
+        p
+            form(method="get", action="/books")
+                input(type="submit", value="Назад")
+        p
+            form(method="get", action=`/books/${book.id}/edit`)
+                input(type="submit", value="Редактировать")
+        p
+            if book.isInStock
+                form(method="get", action=`/books/${book.id}/take`)
+                    input(type="submit", value="Взять")
+            else
+                form(method="get", action=`/books/${book.id}/return`)
+                    input(type="submit", value="Вернуть")
+        p
+           b Название:
+           |
+           |
+           =`${book.title}`
+        p
+            b Автор:
+            |
+            |
+            =`${book.author}`
+        p
+            b Год публикации:
+            |
+            |
+            =`${book.published}`
+        p= book.isInStock ? "В наличии" : `Взял ${book.whoTook} (должен вернуть ${book.whenMustReturn})`
+
+

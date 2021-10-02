@@ -41,9 +41,9 @@
       "title": "Дюна",
       "author": "Фрэнк Герберт",
       "published": 1965,
-      "isInStock": true,
-      "whoTook": null,
-      "whenMustReturn": null
+      "isInStock": false,
+      "whoTook": "Дени Вильнёв",
+      "whenMustReturn": "01-12-2021"
     },
     {
       "id": 6,

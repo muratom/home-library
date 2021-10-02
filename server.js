@@ -13,3 +13,13 @@ const port = 3000;
 server.listen(port, () => {
   console.log(`Server starts listening on port ${port}`)
 });
+
+/*
+TODO:
+  + Adding and deleting books
+  + Editing books' card
+  + Give the book to a reader or return it
+  Filtration
+  Error handling
+  Design
+ */

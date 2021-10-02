@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title= `Добавление книги`
+        link(rel='stylesheet', href='/styles/add_new_book.css')
+    body
+        include header.pug
+        form(method="post", action="/books/adding")
+            //input(type="hidden", name="_method", value="put")
+            p
+                b Название книги:
+            input(type="text", name="title")
+            p
+                b Автор книги:
+            input(type="text", name="author")
+            p
+                b Год первой публикации:
+            input(type="text", name="published")
+            p
+                input(type="submit", value="Добавить")

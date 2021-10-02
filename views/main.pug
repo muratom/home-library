@@ -6,13 +6,23 @@ html
         link(rel='stylesheet', href='/styles/main.css')
     body
         include header.pug
-        section
-            // each book in books
-            //     a.book_cell(href="/books/" + book.id)
-            //         h2= book.title
-            //         p= `${book.author} (${book.published})`
+        p
+            section.buttons
+                p
+                    form(method="get", action="/")
+                        input(type="submit", value="Сменить пользователя")
+                div.edit_buttons
+                    form(method="get", action="/books/add_book")
+                        input(type="submit", value="Добавить книгу")
+                    form(method="get", action="/books/delete_book")
+                        input(type="submit", value="Удалить книгу")
+                // each book in books
+                //     a.book_cell(href="/books/" + book.id)
+                //         h2= book.title
+                //         p= `${book.author} (${book.published})`
+        section.books
             ul
                 each book in books
                   li
                     a(href="/books/" + book.id)
-                      =`${book.id}: ${book.title} (${book.author})`
+                      =`${book.id}: ${book.title} (${book.author})` + (book.isInStock ? "" : " - нет в наличии")

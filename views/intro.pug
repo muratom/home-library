@@ -6,7 +6,7 @@ html
         link(rel='stylesheet', href='/styles/intro.css')
     body
         include header.pug
-        form(action="/books" method="post")
+        form(action="/auth" method="post")
             p Введите имя:
             p
                 input(type="text", size="42", name="user_name")
