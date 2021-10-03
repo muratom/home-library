@@ -164,6 +164,49 @@ router.get("/books/:id([0-9]{1,})/return", (req, res) => {
   }
 });
 
+router.post("/books/filter", (req, res) => {
+  const type = req.body.option;
+  let copyLibBooks = libBooks.slice();
+  switch (type) {
+    case "by_title":
+      copyLibBooks.sort((a, b) => (a.title > b.title) ? 1 : (a.title < b.title ? -1 : 0));
+      break;
+    case "by_stock":
+      // copyLibBooks.sort((a, b) => (a.isInStock && !b.isInStock) ? -1 : ((!a.isInStock && b.isInStock) ? 1 : 0));
+      copyLibBooks = copyLibBooks.filter((b) => {
+        return b.isInStock;
+      });
+      break;
+    case "by_return_date":
+      copyLibBooks = copyLibBooks.filter((b) => {
+        return !b.isInStock;
+      });
+      copyLibBooks.sort((a, b) => {
+        if (a.whenMustReturn && b.whenMustReturn) {
+          return (Date.parse(a.whenMustReturn) > Date.parse(b.whenMustReturn)) ? 1 :
+            (Date.parse(a.whenMustReturn) < Date.parse(b.whenMustReturn) ? -1 : 0);
+        } else if (a.whenMustReturn) {
+          return 1;
+        } else if (b.whenMustReturn) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+      break;
+    default:
+      res.render("book_list", {
+        user_name: userName,
+        books: copyLibBooks
+      });
+  }
+
+  res.render("book_list", {
+    user_name: userName,
+    books: copyLibBooks
+  });
+});
+
 // Access to the style
 router.get("/styles/:css_file_name", (req, res) => {
   res.sendFile(__dirname + "/styles/" + req.params.css_file_name);
@@ -173,6 +216,10 @@ router.get("/styles/:css_file_name", (req, res) => {
 router.get("/images/:image", (req, res) => {
   res.sendFile(__dirname + "/images/" + req.params.image);
 });
+
+router.get("/ajax.js", (req, res) => {
+  res.sendFile(__dirname + "/ajax.js");
+})
 
 module.exports = router;
 

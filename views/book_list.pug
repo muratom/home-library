@@ -1,0 +1,5 @@
+ul
+  each book in books
+      li
+          a(href="/books/" + book.id)
+              =`${book.id}: ${book.title} (${book.author})` + (book.isInStock ? "" : " - нет в наличии")
