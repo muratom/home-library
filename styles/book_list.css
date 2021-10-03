@@ -10,12 +10,12 @@
     margin-right: auto;
     object-fit: contain;
 
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 95%;
 }
 
 .book_cell_div {
-    border: 2px #366277 solid;
+    border: 3px #366277 solid;
     background: #eeeeee;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
@@ -28,6 +28,8 @@
 .book_cell {
     max-width: 400px;
     max-height: 400px;
+    min-width: 400px;
+    min-height: 400px;
 
     text-align: center;
     padding-left: 10px;
@@ -44,9 +46,10 @@
 }
 
 .title {
-    border: #366277 2px solid;
+    /*border: #366277 2px solid;*/
     font-family: Arial, serif;
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: bold;
     background-color: #366277;
     color: white;
 }

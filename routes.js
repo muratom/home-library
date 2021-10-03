@@ -168,8 +168,10 @@ router.get("/books/:id([0-9]{1,})/return", (req, res) => {
     libBooks[curBookIndex].whoTook = null;
     libBooks[curBookIndex].whenMustReturn = null;
     res.redirect("/books/" + req.params.id);
+  } else if (libBooks[curBookIndex].isInStock) {
+    res.send("This book is in stock");
   } else {
-    res.send("You cannot return book which you didn't take")
+    res.send("You cannot return book which you didn't take");
   }
 });
 
