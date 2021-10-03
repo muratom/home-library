@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .book_list {
     display: flex;
     flex-wrap: wrap;
@@ -39,10 +43,6 @@
     margin: 0 0 1rem;
 
     /*max-width: 30%;*/
-}
-
-.book_link {
-    font-size: 25px;
 }
 
 .title {
