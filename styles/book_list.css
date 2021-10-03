@@ -1,14 +1,7 @@
 .book_list {
     display: flex;
     flex-wrap: wrap;
-}
-
-* {
-    box-sizing: inherit;
-}
-
-figure {
-    margin: 0 0 1rem;
+    gap: 5px;
 }
 
 #cover {
@@ -17,40 +10,57 @@ figure {
     margin-right: auto;
     object-fit: contain;
 
-    max-width: 100%;
-    height: auto;
-
+    width: 90%;
+    height: 90%;
 }
 
 .book_cell_div {
-    background: white;
-    margin-left: auto;
-    margin-right: auto;
-    width: 600px;
+    border: 2px #366277 solid;
+    background: #eeeeee;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    margin: auto;
+    /*width: -moz-fit-content;*/
+    /*height: fit-content;*/
+    height: 100%;
 }
 
 .book_cell {
+    max-width: 400px;
+    max-height: 400px;
+
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
+
     flex: 0 0 30%;
-    max-width: 30%;
+    margin: 0 0 1rem;
+
+    /*max-width: 30%;*/
 }
 
 .book_link {
     font-size: 25px;
 }
 
-.book_ul {
-    list-style-type: none;
-    text-align: left;
+.title {
+    border: #366277 2px solid;
+    font-family: Arial, serif;
+    font-size: 18px;
+    background-color: #366277;
+    color: white;
 }
 
-.book_li {
-    display: block;
-}
+/*.book_ul {*/
+/*    list-style-type: none;*/
+/*    text-align: left;*/
+/*}*/
 
-#cover {
-    width: 50%;
-    height: 50%;
-}
+/*.book_li {*/
+/*    display: block;*/
+/*}*/
+
+/*#cover {*/
+/*    width: 50%;*/
+/*    height: 50%;*/
+/*}*/
