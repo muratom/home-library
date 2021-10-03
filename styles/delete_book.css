@@ -1,1 +1,6 @@
 @import "header.css";
+@import "buttons.css";
+
+form {
+    text-align: center;
+}

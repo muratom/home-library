@@ -1,1 +1,26 @@
 @import "header.css";
+@import "buttons.css";
+
+form {
+    text-align: center;
+    font-size: x-large;
+}
+
+.inStock {
+    text-align: center;
+    font-size: x-large;
+    color: green;
+    text-decoration: underline;
+}
+
+.notInStock {
+    text-align: center;
+    font-size: x-large;
+    color: red;
+    text-decoration: underline;
+}
+
+input[type="text"]
+{
+    font-size: x-large;
+}

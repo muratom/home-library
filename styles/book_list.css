@@ -1,0 +1,56 @@
+.book_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+figure {
+    margin: 0 0 1rem;
+}
+
+#cover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+
+    max-width: 100%;
+    height: auto;
+
+}
+
+.book_cell_div {
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+.book_cell {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.book_link {
+    font-size: 25px;
+}
+
+.book_ul {
+    list-style-type: none;
+    text-align: left;
+}
+
+.book_li {
+    display: block;
+}
+
+#cover {
+    width: 50%;
+    height: 50%;
+}

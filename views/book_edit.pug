@@ -8,23 +8,30 @@ html
         include header.pug
         form(method="post", action=`/books/${book.id}/update`)
             p
-                input(type="submit", value="Закончить редактирование")
-            p
                 b Название:
                 |
                 |
-                input(type="text", name="title", placeholder=book.title)
+                input(type="text", name="title", value=book.title)
             p
                 b Автор:
                 |
                 |
-                input(type="text", name="author", placeholder=book.author)
+                input(type="text", name="author", value=book.author)
             p
                 b Год публикации:
                 |
                 |
-                input(type="text", name="published", placeholder=book.published)
+                input(type="text", name="published", value=book.published)
             p
-                =book.isInStock ? "В наличии" : `Взял ${book.whoTook} (должен вернуть ${book.whenMustReturn})`
+                b URL обложки:
+                |
+                |
+                input(type="text", name="coverUrl", value=book.coverUrl === null ? "" : book.coverUrl)
+            if book.isInStock
+                p.inStock= "В наличии"
+            else
+                p.notInStock= `Взял ${book.whoTook} (должен вернуть ${book.whenMustReturn})`
+            p
+                input.buttons(type="submit", value="Закончить редактирование")
 
 

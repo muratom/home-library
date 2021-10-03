@@ -4,30 +4,27 @@ html
         meta(charset="utf-8")
         title Home library
         link(rel='stylesheet', href='/styles/main.css')
+        link(rel='stylesheet', href='/styles/book_list.css')
         script(src="ajax.js")
     body
         include header.pug
         p
-            section.buttons
+            section
                 p
                     form(method="get", action="/")
-                        input(type="submit", value="Сменить пользователя")
+                        input.buttons(type="submit", value="Выйти")
                 div.edit_buttons
                     form(method="get", action="/books/add_book")
-                        input(type="submit", value="Добавить книгу")
+                        input.buttons(type="submit", value="Добавить книгу")
                     form(method="get", action="/books/delete_book")
-                        input(type="submit", value="Удалить книгу")
-                // each book in books
-                //     a.book_cell(href="/books/" + book.id)
-                //         h2= book.title
-                //         p= `${book.author} (${book.published})`
+                        input.buttons(type="submit", value="Удалить книгу")
         p
             form(action="")
-                legend Фильтр:
                 select(id="filter_type", onchange="httpPost(this.options[this.selectedIndex].value);")
                     option(value="#") Выберите тип фильтрации
+                    option(value="all") Вывести все
                     option(value="by_title") По названию
                     option(value="by_stock") Только в наличии
                     option(value="by_return_date") По возрастанию времени возврата
-        section.books#book_list
+        section#book_list
             include book_list

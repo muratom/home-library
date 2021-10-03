@@ -2,38 +2,44 @@ doctype html
 html
     head
         meta(charset="utf-8")
-        title= `${book.name} (${(book.author)})`
+        title= `${book.title} (${(book.author)})`
         link(rel='stylesheet', href='/styles/book.css')
     body
         include header.pug
         p
-            form(method="get", action="/books")
-                input(type="submit", value="Назад")
-        p
-            form(method="get", action=`/books/${book.id}/edit`)
-                input(type="submit", value="Редактировать")
-        p
+            .buttons_container
+                form(method="get", action="/books")
+                    input.buttons(type="submit", value="Назад")
+                form(method="get", action=`/books/${book.id}/edit`)
+                    input.buttons(type="submit", value="Редактировать")
+                if book.isInStock
+                    form(method="get", action=`/books/${book.id}/take`)
+                        input.buttons(type="submit", value="Взять")
+                else
+                    form(method="get", action=`/books/${book.id}/return`)
+                        input.buttons(type="submit", value="Вернуть")
+        .info
+            if book.coverUrl != null
+                p
+                    img#cover(src=book.coverUrl, alt="Обложка книги")
+            p
+                b Название:
+                |
+                |
+                =`${book.title}`
+            p
+                b Автор:
+                |
+                |
+                =`${book.author}`
+            p
+                b Год публикации:
+                |
+                |
+                =`${book.published}`
             if book.isInStock
-                form(method="get", action=`/books/${book.id}/take`)
-                    input(type="submit", value="Взять")
+                p.inStock= "В наличии"
             else
-                form(method="get", action=`/books/${book.id}/return`)
-                    input(type="submit", value="Вернуть")
-        p
-           b Название:
-           |
-           |
-           =`${book.title}`
-        p
-            b Автор:
-            |
-            |
-            =`${book.author}`
-        p
-            b Год публикации:
-            |
-            |
-            =`${book.published}`
-        p= book.isInStock ? "В наличии" : `Взял ${book.whoTook} (должен вернуть ${book.whenMustReturn})`
+                p.notInStock= `Взял ${book.whoTook} (должен вернуть ${book.whenMustReturn})`
 
 

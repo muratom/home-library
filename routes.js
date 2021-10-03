@@ -8,7 +8,7 @@ let curId = libBooks.length + 1;
 
 // Introduction page
 router.get("/", (req, res) => {
-  res.render("intro", {
+  res.render("intro2", {
     user_name: ""
   });
 });
@@ -46,22 +46,26 @@ router.get("/books/delete_book", (req, res) => {
 
 // For adding a new book
 router.post("/books/adding", (req, res) => {
-  console.log("router.post /books/adding");
-
   let newBook = {
     "id": curId,
     "title": req.body.title,
     "author": req.body.author,
     "published": req.body.published,
+    "coverUrl": req.body.coverUrl === "" ? null : req.body.coverUrl,
     "isInStock": true,
     "whoTook": null,
     "whenMustReturn": null
   };
-  ++curId;
-  libBooks.push(newBook);
-  // Write to the file?
-
-  res.redirect("/books");
+  if (!newBook.title ||
+    !newBook.author ||
+    !newBook.published) {
+    res.status(400);
+    res.json({message: "Bad request"});
+  } else {
+    ++curId;
+    libBooks.push(newBook);
+    res.redirect("/books");
+  }
 });
 
 router.post("/books/deleting", (req, res) => {
@@ -126,27 +130,32 @@ router.post("/books/:id([0-9]{1,})/update", (req, res) => {
 
   // Check validation
   const body = req.body;
-  libBooks[reqBookIndex].title = body.title ? body.title : libBooks[reqBookIndex].title;
-  libBooks[reqBookIndex].author = body.author ? body.author : libBooks[reqBookIndex].author;
-  libBooks[reqBookIndex].published = body.published ? body.published : libBooks[reqBookIndex].published;
+  libBooks[reqBookIndex].title = body.title !== "" ? body.title : libBooks[reqBookIndex].title;
+  libBooks[reqBookIndex].author = body.author !== "" ? body.author : libBooks[reqBookIndex].author;
+  libBooks[reqBookIndex].published = body.published !== "" ? body.published : libBooks[reqBookIndex].published;
+  libBooks[reqBookIndex].coverUrl = body.coverUrl === "" ? null : body.coverUrl;
 
   res.redirect("/books/" + req.params.id);
 });
 
 router.get("/books/:id([0-9]{1,})/take", (req, res) => {
-  const curBookIndex = libBooks.map((book) => {
-    return parseInt(book.id);
-  }).indexOf(parseInt(req.params.id));
+  if (userName === "anonymous") {
+    res.status(400).send("You didn't enter your name so you cannot take the book")
+  } else {
+    const curBookIndex = libBooks.map((book) => {
+      return parseInt(book.id);
+    }).indexOf(parseInt(req.params.id));
 
-  libBooks[curBookIndex].isInStock = false;
-  libBooks[curBookIndex].whoTook = userName;
-  let dateOptions = {year: 'numeric', month: 'long', day: 'numeric'};
-  let today = new Date();
-  let returnDate = new Date();
-  returnDate.setDate(today.getDate() + 30);
-  libBooks[curBookIndex].whenMustReturn = returnDate.toLocaleString("ru-RU", dateOptions);
+    libBooks[curBookIndex].isInStock = false;
+    libBooks[curBookIndex].whoTook = userName;
+    let dateOptions = {year: 'numeric', month: 'long', day: 'numeric'};
+    let today = new Date();
+    let returnDate = new Date();
+    returnDate.setDate(today.getDate() + 30);
+    libBooks[curBookIndex].whenMustReturn = returnDate.toLocaleString("ru-RU", dateOptions);
 
-  res.redirect("/books/" + req.params.id);
+    res.redirect("/books/" + req.params.id);
+  }
 });
 
 router.get("/books/:id([0-9]{1,})/return", (req, res) => {
@@ -168,6 +177,8 @@ router.post("/books/filter", (req, res) => {
   const type = req.body.option;
   let copyLibBooks = libBooks.slice();
   switch (type) {
+    case "all":
+      break;
     case "by_title":
       copyLibBooks.sort((a, b) => (a.title > b.title) ? 1 : (a.title < b.title ? -1 : 0));
       break;
@@ -217,8 +228,8 @@ router.get("/images/:image", (req, res) => {
   res.sendFile(__dirname + "/images/" + req.params.image);
 });
 
-router.get("/ajax.js", (req, res) => {
-  res.sendFile(__dirname + "/ajax.js");
+router.get("/:js_file_name", (req, res) => {
+  res.sendFile(__dirname + "/" + req.params.js_file_name);
 })
 
 module.exports = router;

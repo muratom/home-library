@@ -1,8 +1,15 @@
 @import "header.css";
+@import "buttons.css";
 
 .edit_buttons {
     display: flex;
     gap: 10px;
+}
+
+select {
+    width: auto;
+    margin: 10px;
+    font-size: large;
 }
 
 /*section {*/
