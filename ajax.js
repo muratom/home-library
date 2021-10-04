@@ -11,7 +11,3 @@ function httpPost(value) {
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(`option=${value}`);
 }
-
-function callback() {
-  alert("Filtering is done!");
-}

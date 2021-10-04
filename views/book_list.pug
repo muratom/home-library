@@ -1,9 +1,4 @@
 .book_list
-    //ul.book_ul
-    //  each book in books
-    //      li.book_li
-    //          a.book_link(href="/books/" + book.id)
-    //              =`📚 ${book.title} (${book.author})` + (book.isInStock ? "" : " - нет в наличии")
     each book in books
         figure.book_cell
             a(href="/books/" + book.id)
