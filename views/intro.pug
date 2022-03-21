@@ -1,14 +1,26 @@
 doctype html
 html
     head
-        meta(charset="utf-8")
-        title Home library
+        meta(charset='utf-8')
+        title Войти в библиотеку
         link(rel='stylesheet', href='/styles/intro.css')
+        script(defer, src="modal_window.js")
     body
         include header.pug
-        form(action="/auth" method="post")
-            p Введите имя:
-            p
-                input(type="text", size="42", name="user_name")
-            p
-                input(type="submit", value="Отправить")
+        p#enter_btn_container
+            button#enter_btn Войти
+        p
+            #enter_modal.modal
+                .modal-content
+                    .modal-header
+                        span.close ×
+                        h2 Войти в библиотеку
+                    .modal-body
+                        form(action="/auth" method="post")
+                            p#enter_name.
+                                Введите имя:
+                            p
+                                input(type="text", size="42", name="user_name")
+                            p
+                                input.buttons(type="submit", value="Отправить")
+
