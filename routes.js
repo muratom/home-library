@@ -50,7 +50,7 @@ router.post("/books/adding", (req, res) => {
     "whenMustReturn": null
   };
   if (!newBook.title ||
-    !newBook.author.toString().match(/[A-Za-z]+/) ||
+    !newBook.author ||
     !newBook.published.toString().match(/^[0-9]+$/)) {
     res.status(400);
     res.json({message: "Bad request"});
