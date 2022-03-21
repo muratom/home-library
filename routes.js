@@ -8,7 +8,7 @@ let curId = libBooks.length + 1;
 
 // Introduction page
 router.get("/", (req, res) => {
-  res.render("intro2", {
+  res.render("intro", {
     user_name: ""
   });
 });
@@ -17,13 +17,6 @@ router.post("/auth", (req, res) => {
   userName = req.body.user_name === "" ? "anonymous" : req.body.user_name;
   res.redirect("/books");
 });
-
-// router.post("/books", (req, res) => {
-//   res.render("main", {
-//     user_name: userName,
-//     books: libBooks
-//   });
-// });
 
 router.get("/books", (req, res) => {
   res.render("main", {
@@ -84,13 +77,6 @@ router.post("/books/deleting", (req, res) => {
     res.redirect("/books");
   }
 });
-
-// router.get("/books", (req, res) => {
-//   res.render("main", {
-//     user_name: userName,
-//     books: libBooks.books
-//   });
-// });
 
 router.get("/books/:id([0-9]{1,})", (req, res) => {
   let reqBook = libBooks.filter(b => {

@@ -21,11 +21,7 @@ a {
 .book_cell_div {
     border: 3px #366277 solid;
     background: #eeeeee;
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
     margin: auto;
-    /*width: -moz-fit-content;*/
-    /*height: fit-content;*/
     height: 100%;
 }
 
@@ -41,29 +37,12 @@ a {
 
     flex: 0 0 30%;
     margin: 0 0 1rem;
-
-    /*max-width: 30%;*/
 }
 
 .title {
-    /*border: #366277 2px solid;*/
     font-family: Arial, serif;
     font-size: 17px;
     font-weight: bold;
     background-color: #366277;
     color: white;
 }
-
-/*.book_ul {*/
-/*    list-style-type: none;*/
-/*    text-align: left;*/
-/*}*/
-
-/*.book_li {*/
-/*    display: block;*/
-/*}*/
-
-/*#cover {*/
-/*    width: 50%;*/
-/*    height: 50%;*/
-/*}*/
