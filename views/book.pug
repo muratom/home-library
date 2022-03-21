@@ -16,8 +16,9 @@ html
                     form(method="get", action=`/books/${book.id}/take`)
                         input.buttons(type="submit", value="Взять")
                 else
-                    form(method="get", action=`/books/${book.id}/return`)
-                        input.buttons(type="submit", value="Вернуть")
+                    if user_name === book.whoTook
+                        form(method="get", action=`/books/${book.id}/return`)
+                            input.buttons(type="submit", value="Вернуть")
         .info
             if book.coverUrl != null
                 p
